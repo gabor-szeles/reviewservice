@@ -18,6 +18,15 @@ public class Review {
 
     private Long userId;
 
+    public Review() {
+    }
+
+    public Review(Long authorId, String description, Long userId) {
+        this.authorId = authorId;
+        this.description = description;
+        this.userId = userId;
+    }
+
     public Long getId() {
         return id;
     }
