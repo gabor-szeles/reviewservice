@@ -19,8 +19,14 @@ public class ReviewController {
     @GetMapping(value = "/get-review/{userId}")
     public ResponseEntity getReview(@PathVariable("userId") Long userId) {
         Map<String, Object> resultMap = new HashMap<>();
+        List<Map<String,String>> reviewsList = reviewService.getReviewsByUserId(userId);
         resultMap.put("userId", userId);
-        resultMap.put("reviews", reviewService.getReviewsByUserId(userId));
+        resultMap.put("reviews", reviewsList);
+        if(reviewsList.size()==0) {
+            resultMap.put("found", false);
+        } else{
+            resultMap.put("found", true);
+        }
         return new ResponseEntity(resultMap, HttpStatus.OK);
     }
 
