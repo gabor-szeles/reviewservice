@@ -18,13 +18,16 @@ public class Review {
 
     private Long userId;
 
+    private Long rating;
+
     public Review() {
     }
 
-    public Review(Long authorId, String description, Long userId) {
+    public Review(Long authorId, String description, Long userId, Long rating) {
         this.authorId = authorId;
         this.description = description;
         this.userId = userId;
+        this.rating = rating;
     }
 
     public Long getId() {
@@ -53,5 +56,13 @@ public class Review {
 
     public void setUserId(Long rating) {
         this.userId = rating;
+    }
+
+    public Long getRating() {
+        return rating;
+    }
+
+    public void setRating(Long rating) {
+        this.rating = rating;
     }
 }
