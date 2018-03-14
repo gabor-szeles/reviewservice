@@ -33,8 +33,9 @@ public class ReviewController {
     @PutMapping(value = "/add-review")
     public ResponseEntity addReview(@RequestParam("userId") Long userId,
                                     @RequestParam("authorId") Long authorId,
-                                    @RequestParam("reviewText") String reviewText) {
-        reviewService.addReview(userId, authorId, reviewText);
+                                    @RequestParam("reviewText") String reviewText,
+                                    @RequestParam("rating") Long rating) {
+        reviewService.addReview(userId, authorId, reviewText, rating);
         return new ResponseEntity("OK", HttpStatus.OK);
     }
 
