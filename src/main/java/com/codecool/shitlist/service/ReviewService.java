@@ -38,6 +38,7 @@ public class ReviewService {
             reviewMap.put("reviewId", review.getId().toString());
             reviewMap.put("author", getAuthorNameById(review.getAuthorId()));
             reviewMap.put("description", review.getDescription());
+            reviewMap.put("rating", review.getRating().toString());
             resultList.add(reviewMap);
         }
         return resultList;
