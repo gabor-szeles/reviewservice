@@ -16,7 +16,7 @@ import java.util.Map;
 @Service
 public class ReviewService {
 
-    private final String userServiceURI = "http://valami.com/user/";
+    private final String userServiceURI = "https://shitwish-user.herokuapp.com/user/";
 
     @Autowired
     private ReviewRepository reviewRepository;
