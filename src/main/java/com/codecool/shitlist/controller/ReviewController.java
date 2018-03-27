@@ -3,6 +3,7 @@ package com.codecool.shitlist.controller;
 import com.codecool.shitlist.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @GetMapping(value = "/get-review/{userId}")
+    @GetMapping(value = "/get-review/{userId}", produces = "application/json")
     public ResponseEntity getReview(@PathVariable("userId") Long userId) {
         Map<String, Object> resultMap = new HashMap<>();
         List<Map<String,String>> reviewsList = reviewService.getReviewsByUserId(userId);
