@@ -21,8 +21,8 @@ public class ReviewService {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    public void addReview(Long userId, Long authorId, String title, String reviewText, Long rating, String comment) {
-        Review toAdd = new Review(authorId, title, reviewText, userId, rating, comment);
+    public void addReview(Long userId, Long authorId, String title, String reviewText, Long rating) {
+        Review toAdd = new Review(authorId, title, reviewText, userId, rating);
         reviewRepository.save(toAdd);
     }
 
