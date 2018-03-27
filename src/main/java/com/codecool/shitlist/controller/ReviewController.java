@@ -35,9 +35,8 @@ public class ReviewController {
                                     @RequestParam("authorId") Long authorId,
                                     @RequestParam("title") String title,
                                     @RequestParam("reviewText") String reviewText,
-                                    @RequestParam("rating") Long rating,
-                                    @RequestParam("comment") String comment) {
-        reviewService.addReview(userId, authorId, title, reviewText, rating, comment);
+                                    @RequestParam("rating") Long rating) {
+        reviewService.addReview(userId, authorId, title, reviewText, rating);
         return new ResponseEntity("OK", HttpStatus.OK);
     }
 
