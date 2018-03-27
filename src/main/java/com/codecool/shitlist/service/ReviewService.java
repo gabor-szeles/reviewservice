@@ -21,8 +21,8 @@ public class ReviewService {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    public void addReview(Long userId, Long authorId, String reviewText, Long rating) {
-        Review toAdd = new Review(authorId, reviewText, userId, rating);
+    public void addReview(Long userId, Long authorId, String title, String reviewText, Long rating, String comment) {
+        Review toAdd = new Review(authorId, title, reviewText, userId, rating, comment);
         reviewRepository.save(toAdd);
     }
 
@@ -37,8 +37,11 @@ public class ReviewService {
             Map<String, String> reviewMap = new HashMap<>();
             reviewMap.put("reviewId", review.getId().toString());
             reviewMap.put("author", getAuthorNameById(review.getAuthorId()));
+            reviewMap.put("title", review.getTitle());
             reviewMap.put("description", review.getDescription());
             reviewMap.put("rating", review.getRating().toString());
+            reviewMap.put("comment", review.getComment());
+            reviewMap.put("date", review.getDate().toString());
             resultList.add(reviewMap);
         }
         return resultList;
