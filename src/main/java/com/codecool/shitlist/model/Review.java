@@ -31,13 +31,12 @@ public class Review {
     public Review() {
     }
 
-    public Review(Long authorId, String title, String description, Long userId, Long rating, String comment) {
+    public Review(Long authorId, String title, String description, Long userId, Long rating) {
         this.authorId = authorId;
         this.title = title;
         this.description = description;
         this.userId = userId;
         this.rating = rating;
-        this.comment = comment;
         this.date = ZonedDateTime.now().toLocalDate();
     }
 
