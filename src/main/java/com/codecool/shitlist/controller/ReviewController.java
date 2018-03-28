@@ -31,7 +31,7 @@ public class ReviewController {
         return new ResponseEntity(resultMap, HttpStatus.OK);
     }
 
-    @PutMapping(value = "/add-review")
+    @PostMapping(value = "/add-review")
     public ResponseEntity addReview(@RequestParam("userId") Long userId,
                                     @RequestParam("authorId") Long authorId,
                                     @RequestParam("title") String title,
