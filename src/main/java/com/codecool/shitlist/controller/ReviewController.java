@@ -22,12 +22,8 @@ public class ReviewController {
         List<Map<String,String>> reviewsList = reviewService.getReviewsByUserId(userId);
         resultMap.put("userId", userId);
         resultMap.put("reviews", reviewsList);
-        if(reviewsList.size()==0) {
-            resultMap.put("found", false);
-        } else{
-            resultMap.put("found", true);
-        }
-        return new ResponseEntity(resultMap, HttpStatus.OK);
+        resultMap.put("found", !reviewsList.isEmpty());
+        return ResponseEntity.ok(resultMap);
     }
 
     @PutMapping(value = "/add-review")
@@ -36,12 +32,12 @@ public class ReviewController {
                                     @RequestParam("reviewText") String reviewText,
                                     @RequestParam("rating") Long rating) {
         reviewService.addReview(userId, authorId, reviewText, rating);
-        return new ResponseEntity("OK", HttpStatus.OK);
+        return ResponseEntity.ok("OK");
     }
 
     @DeleteMapping(value = "/delete-review")
     public ResponseEntity deleteReview(@RequestParam("reviewId") Long reviewId) {
         reviewService.deleteReview(reviewId);
-        return new ResponseEntity("OK", HttpStatus.OK);
+        return ResponseEntity.ok("OK");
     }
 }
